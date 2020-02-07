@@ -1,10 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os,re,sys,logging
 from dateutil import tz
 from datetime import date, datetime, timedelta
 
-from Tools.colours import Colours
+from Colours import Colours
 
 class ColouredFormatter(logging.Formatter):
 
@@ -19,7 +19,7 @@ class ColouredFormatter(logging.Formatter):
 		}
 		self.gmt = tz.gettz('UTC')
 		self.ltz = tz.gettz() # empty arg == local time zone
-		logging.Formatter.__init__(self, msg)
+		#logging.Formatter.__init__(self, msg)
 
 	def format(self, record):
 		d = datetime(1970,1,1)

@@ -1,12 +1,11 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 import os, sys, re, inspect, logging
 
 from functools import wraps
 
-from Tools.argue import Argue
-from Tools.colours import Colours
-from Tools.LogColour import ColouredLogger
+from Colours import Colours
+from LogColour import ColouredLogger
 
 for name in logging.Logger.manager.loggerDict.keys():
 	logging.getLogger(name).setLevel(logging.ERROR)
@@ -30,7 +29,7 @@ class Logger(object):
 		if not name:
 			# use the name of the calling function
 			stack = inspect.stack()
-			#print stack
+			#print(stack
 			name = os.path.basename(stack[1][1]).replace('.py', '')
 		logging.setLoggerClass(ColouredLogger)
 		self.colours = Colours(colour=True)
@@ -138,7 +137,6 @@ class Logger(object):
 
 #========================================================================================
 logger = Logger()
-args = Argue()
 
 
 @logger.warning
@@ -146,7 +144,6 @@ def handler(*args, **kwargs):
 	return 'in handler (%s, %s)' % (args, kwargs)
 
 
-@args.command(single=True)
 class Test(object):
 	@logger.debug
 	def __init__(self):
@@ -157,26 +154,20 @@ class Test(object):
 		pass
 
 	@logger.info
-	@args.operation
-	@args.parameter(name='a')
-	@args.parameter(name='k')
 	def run(self, a, k=None):
 		return 'kk'
 
 	@logger.handle
-	@args.operation
 	def noFail(self, arg1, arg2, kwargs1=None):
 		logger.info('did not fail')
 		return True
 
 	@logger.handle
-	@args.operation
 	def willFail(self, arg1, arg2, kwargs1=None):
 		raise Exception('failed and logged')
 		return False
 
 	@logger.handle(handler=handler)
-	@args.operation
 	def doFail(self, arg1, arg2, kwargs1=None):
 		raise Exception('failed and handled')
 		return False
@@ -224,39 +215,27 @@ def main():
 		return False
 
 	if True:
-		print
-		print testCritical('a', 2, kwargs1=True)
-		print testError('a', 2, kwargs1=True)
-		print testWarning('a', 2, kwargs1=True)
-		print testInfo('a', 2, kwargs1=True)
-		print testDebug('a', 2, kwargs1=True)
-		print testLog('a', 2, kwargs1=True)
+		print(testCritical('a', 2, kwargs1=True))
+		print(testError('a', 2, kwargs1=True))
+		print(testWarning('a', 2, kwargs1=True))
+		print(testInfo('a', 2, kwargs1=True))
+		print(testDebug('a', 2, kwargs1=True))
+		print(testLog('a', 2, kwargs1=True))
 
 	if True:
 		print
-		print noFail('a', 2, kwargs1=True)
-		print willFail('a', 2, kwargs1=True)
-		print doFail('a', 2, kwargs1=True)
+		print(noFail('a', 2, kwargs1=True))
+		print(willFail('a', 2, kwargs1=True))
+		print(doFail('a', 2, kwargs1=True))
 
 	if True:
 		print
 		test = Test()
-		print test.run('aye', k='kye')
-		print test.noFail('a', 2, kwargs1=True)
-		print test.willFail('a', 2, kwargs1=True)
-		print test.doFail('a', 2, kwargs1=True)
+		print(test.run('aye', k='kye'))
+		print(test.noFail('a', 2, kwargs1=True))
+		print(test.willFail('a', 2, kwargs1=True))
+		print(test.doFail('a', 2, kwargs1=True))
 		del test
-
-	if True:
-		print
-		args.parse('run aye --k=kye'.split())
-		print args.execute()
-		args.parsed = args.parser.parse_args('noFail a1 a2'.split())
-		print args.execute()
-		args.parsed = args.parser.parse_args('willFail a1 a2'.split())
-		print args.execute()
-		args.parsed = args.parser.parse_args('doFail a1 a2'.split())
-		print args.execute()
 
 	if True:
 		print
