@@ -4,8 +4,8 @@ import os, sys, re, inspect, logging
 
 from functools import wraps
 
-from Colours import Colours
-from LogColour import ColouredLogger
+from Baubles.Colours import Colours
+from Baubles.LogColour import ColouredLogger
 
 for name in logging.Logger.manager.loggerDict.keys():
 	logging.getLogger(name).setLevel(logging.ERROR)
