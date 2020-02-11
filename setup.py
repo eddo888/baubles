@@ -10,8 +10,9 @@ setup(name='Baubles',
   author_email='eddo888@tpg.com.au',
   license='MIT',
   packages=[
+      'Logging'
   ],
   install_requires=[
   ],
-  zip_safe=False
+  #zip_safe=False
 )
