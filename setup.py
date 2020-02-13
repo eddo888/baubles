@@ -8,6 +8,7 @@ setup(
 	license='MIT',
 	description='logging decorator',
 	url='https://github.com/eddo888/baubles',
+	download_url='https://github.com/eddo888/baubles/archive/1.0.tar.gz',
 	author='David Edson',
 	author_email='eddo888@tpg.com.au',
 	packages=[
