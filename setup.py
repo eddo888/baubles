@@ -1,18 +1,18 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
-from setuptools import setup
+from distutils.core import setup
 
-setup(name='Baubles',
-  version='1.0',
-  description='logging decorator',
-  url='git@github.com:eddo888/baubles.git',
-  author='David Edson',
-  author_email='eddo888@tpg.com.au',
-  license='MIT',
-  packages=[
-      'Baubles'
-  ],
-  install_requires=[
-  ],
-  #zip_safe=False
+setup(
+	name='Baubles',
+	version='1.0',
+	license='MIT',
+	description='logging decorator',
+	url='https://github.com/eddo888/baubles',
+	author='David Edson',
+	author_email='eddo888@tpg.com.au',
+	packages=[
+		'Baubles',
+	],
+	#install_requires=[],
+	#python_requires='>=3.6',
 )
