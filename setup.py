@@ -10,7 +10,7 @@ with codecs.open(path.join(pwd, 'README.md'), 'r', encoding='utf8') as input:
 	
 setup(
 	name='Baubles',
-	version='1.3',
+	version='1.4',
 	license='MIT',
     long_description=long_description,
 	long_description_content_type="text/markdown",

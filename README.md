@@ -52,6 +52,9 @@ main()
 
 ```
 
+![ItsChristmas](https://raw.githubusercontent.com/eddo888/baubles/master/ItsChristmas.png)
+
+
 ## Pythonista Colour Console
 
 for the Pythonista fans, make a file called pythonista_startup.py with the following snippet and pop it in your site-packages directory.
