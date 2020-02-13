@@ -4,7 +4,7 @@ import os,re,sys,logging
 from dateutil import tz
 from datetime import date, datetime, timedelta
 
-from Colours import Colours
+from Baubles.Colours import Colours
 
 class ColouredFormatter(logging.Formatter):
 
