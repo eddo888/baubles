@@ -4,7 +4,7 @@ from distutils.core import setup
 
 setup(
 	name='Baubles',
-	version='1.0',
+	version='1.1',
 	license='MIT',
 	description='logging decorator',
 	url='https://github.com/eddo888/baubles',
