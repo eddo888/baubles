@@ -28,9 +28,12 @@ class Logger(object):
 	def __init__(self, name=None):
 		if not name:
 			# use the name of the calling function
-			stack = inspect.stack()
-			#print(stack
-			name = os.path.basename(stack[1][1]).replace('.py', '')
+			try:
+				stack = inspect.stack()
+				name = os.path.basename(stack[1][1]).replace('.py', '')
+			except:
+				name = ''
+
 		logging.setLoggerClass(ColouredLogger)
 		self.colours = Colours(colour=True)
 		self.__logger = logging.getLogger(name)
