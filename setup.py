@@ -7,15 +7,17 @@ from setuptools import setup
 pwd = path.abspath(path.dirname(__file__))
 with codecs.open(path.join(pwd, 'README.md'), 'r', encoding='utf8') as input:
     long_description = input.read()
+
+version='1.6'
 	
 setup(
 	name='Baubles',
-	version='1.4',
+	version=version,
 	license='MIT',
     long_description=long_description,
 	long_description_content_type="text/markdown",
 	url='https://github.com/eddo888/baubles',
-	download_url='https://github.com/eddo888/baubles/archive/1.3.tar.gz',
+	download_url='https://github.com/eddo888/baubles/archive/%s.tar.gz'%version,
 	author='David Edson',
 	author_email='eddo888@tpg.com.au',
 	packages=[
